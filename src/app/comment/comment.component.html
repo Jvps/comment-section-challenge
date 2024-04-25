@@ -1,0 +1,19 @@
+<div class="columns">
+  <div class="column"></div>
+  <div class="column is-half">
+    <div class="columns mt-3">
+      <div class="column">
+        <textarea
+          [(ngModel)]="textAreaContent"
+          id="comment-section"
+          class="textarea"
+          rows="3">
+        </textarea>
+      </div>
+      <div class="column is-one-fifth">
+        <button class="button is-link" (click)="sendComment()">SEND</button>
+      </div>
+    </div>
+  </div>
+  <div class="column"></div>
+</div>
