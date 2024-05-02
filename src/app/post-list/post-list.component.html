@@ -1,0 +1,10 @@
+<div class="columns mt-3">
+  <div class="column"></div>
+  <div class="column is-half">
+      <div style="margin-bottom: 1rem;" *ngFor="let post of postList">
+        <app-post-item [postInfo]="post"></app-post-item>
+      </div>
+      <app-post-form (newPost)="receivePostFromChild($event)"></app-post-form>
+  </div>
+  <div class="column"></div>
+</div>

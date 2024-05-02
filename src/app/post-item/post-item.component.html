@@ -1,0 +1,46 @@
+<div class="card">
+  <div class="card-content">
+    
+    <div class="columns" id="post-item-main-column">
+      <div class="column is-1">
+        <span class="icon icon-style">
+          <i class="fa-regular fa-thumbs-up"></i>
+        </span>
+      </div>
+      <div class="column">
+        <div class="columns">
+          <div class="column user-data-style">
+            <div class="columns is-mobile is-vcentered">
+              <div class="column is-narrow">
+                <img class="user-image" src="{{ getProfileImageSrc() }}">
+              </div>
+              <div class="column username">
+                {{ postInfo?.user?.username }}
+              </div>
+              <div class="column">
+                {{ formatPostTime(postInfo?.date) }}
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="columns is-mobile is-vcentered is-gapless is-multiline is-justify-content-flex-end reply-color">
+              <div class="column is-narrow reply-icon">
+                <span class="icon">
+                  <i class="fa-solid fa-reply"></i>
+                </span>
+              </div>
+              <div class="column is-narrow">
+                Reply
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column" style="white-space: pre-wrap;">
+            {{ postInfo?.text }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
