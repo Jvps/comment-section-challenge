@@ -1,6 +1,6 @@
 # CommentSectionChallenge
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0 with the purpose of completing a challenge which involves creating comments and replies for a post.
 
 ## Development server
 
