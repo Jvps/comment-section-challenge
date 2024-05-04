@@ -6,6 +6,7 @@ import { AppComponent } from 'src/app/app.component';
 import { PostFormComponent } from 'src/app/post-form/post-form.component';
 import { PostItemComponent } from './post-item/post-item.component';
 import { PostListComponent } from './post-list/post-list.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PostListComponent } from './post-list/post-list.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
