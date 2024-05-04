@@ -1,10 +1,39 @@
 <div class="columns mt-3">
   <div class="column"></div>
   <div class="column is-half">
-      <div style="margin-bottom: 1rem;" *ngFor="let post of postList">
-        <app-post-item [postInfo]="post"></app-post-item>
+      <div 
+        style="margin-bottom: 1rem;" 
+        *ngFor="let post of postList">
+          <!-- Post principal -->
+          <app-post-item 
+            [postInfo]="post"
+            (focusReply)="focusOnReply(post)">
+          </app-post-item>
+          
+          <!-- Replies -->
+          <div 
+            *ngIf="post.postReplies && post.postReplies.length > 0" 
+            class="columns mt-3">
+              <div class="column is-2 vertical-line"></div>
+              <div class="column">
+                <div 
+                  id="replies" 
+                  *ngFor="let reply of post.postReplies" 
+                  class="mb-3">
+                    <app-post-item 
+                      [postInfo]="reply" 
+                      [allowReplies]="false">
+                    </app-post-item>
+                </div>
+              </div>
+          </div>
       </div>
-      <app-post-form (newPost)="receivePostFromChild($event)"></app-post-form>
+
+      <app-post-form 
+        [(postList)]="postList"
+        [events]="eventsSubject.asObservable()"
+        (newPost)="receivePostFromChild($event)">
+      </app-post-form>
   </div>
   <div class="column"></div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IPost } from './Post';
 
 @Component({
@@ -7,10 +7,14 @@ import { IPost } from './Post';
   styleUrls: ['./post-item.component.css']
 })
 export class PostItemComponent {
+  @Input() allowReplies?: boolean = true;
   @Input() postInfo?: IPost;
+  
+  @Output() focusReply = new EventEmitter<void>();
 
-  formatPostTime(date?: Date): string {
+  formatPostTime(date?: Date | string): string {
     if (!date) return 'error';
+    if (typeof date === 'string') date = new Date(date);
 
     const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
     let interval = Math.floor(seconds / 31536000);
@@ -44,5 +48,9 @@ export class PostItemComponent {
 
   getProfileImageSrc() {
     return this.postInfo?.user?.profileImagePath ?? '../../assets/icons/defaultUser.png';
+  }
+
+  emitReply() {
+    this.focusReply.emit();
   }
 }

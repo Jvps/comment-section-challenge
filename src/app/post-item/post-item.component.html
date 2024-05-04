@@ -23,7 +23,7 @@
             </div>
           </div>
           <div class="column">
-            <div class="columns is-mobile is-vcentered is-gapless is-multiline is-justify-content-flex-end reply-color">
+            <div *ngIf="allowReplies" class="columns is-mobile is-vcentered is-gapless is-multiline is-justify-content-flex-end reply-color" (click)="emitReply()">
               <div class="column is-narrow reply-icon">
                 <span class="icon">
                   <i class="fa-solid fa-reply"></i>
